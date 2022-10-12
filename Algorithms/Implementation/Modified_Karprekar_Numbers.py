@@ -1,10 +1,26 @@
-l = 1
-u = 1000000
 
-# https://www.hackerrank.com/challenges/kaprekar-numbers/problem?h_r=internal-search
+# https://www.hackerrank.com/challenges/kaprekar-numbers/problem
 # https://en.wikipedia.org/wiki/Kaprekar_number
 # https://betterexplained.com/articles/numbers-and-bases/
 
+def kaprekarNumbers(p, q):
+    s = ''
+    for i in range(p, q+1):
+        l = 10 if i < 10 else 10**len(str(i))
+        n = i**2
+
+        beta = n % l
+        alpha = (n - beta)/l
+
+        # check
+        if i == alpha+beta:
+            s += str(i) + ' '
+    return 'INVALID RANGE' if s == '' else s
+
+
+'''
+l = 1
+u = 1000000
 
 # method 1 -> square -> str -> split -> sum
 def karprekar(n):
@@ -74,3 +90,5 @@ def kaprekarf_cycle(x: int, p: int, b: int) -> list[int]:
         cycle.append(x)
         x = kaprekarf(x, p, b)
     return cycle
+
+'''
