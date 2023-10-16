@@ -1,0 +1,9 @@
+# link => https://www.hackerrank.com/challenges/divisible-sum-pairs/problem?isFullScreen=false
+
+def divisibleSumPairs(n, k, ar):
+    out = []
+    for i in range(n):
+        for j in range(n):
+            if i != j and (ar[i] + ar[j]) % k == 0:
+                out.append(tuple(sorted([i, j])))
+    return len(set(out))
